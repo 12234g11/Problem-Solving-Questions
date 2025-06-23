@@ -50,6 +50,8 @@ int main()
 }
 //My solution is o(nlogn)
 
+
+//this better solution with O(n)
 //class Solution {
 //public:
 //    int findClosestNumber(vector<int>& nums) {
