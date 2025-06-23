@@ -1,0 +1,41 @@
+Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+
+A subsequence of a string is a new string that is formed from the original string by deleting
+some (can be none) of the characters without disturbing the relative positions of the remaining
+characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+
+ 
+
+Example 1:
+
+Input: s = "abc", t = "ahbgdc"
+Output: true
+
+Example 2:
+
+Input: s = "axc", t = "ahbgdc"
+Output: false
+ 
+
+Constraints:
+
+0 <= s.length <= 100
+0 <= t.length <= 104
+s and t consist only of lowercase English letters.
+
+Problem Link-> https://leetcode.com/problems/is-subsequence/description/
+_____________________________________________________________________________________________________________________________
+Intuition
+The idea is to check whether all characters of string s appear in string t in the same order, not necessarily consecutively. 
+This means we can scan through t and try to match each character of s one by one.
+
+Approach
+We use a two-pointer technique, but only one explicit pointer c for string s.
+We iterate over string t, and for every character that matches the current character in s[c], we move the pointer c forward.
+If we can move c all the way to the end of s, it means s is a subsequence of t.
+
+Complexity
+Time complexity:
+O(n)
+Space complexity:
+O(1)
