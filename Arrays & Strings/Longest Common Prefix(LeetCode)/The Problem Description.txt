@@ -1,0 +1,62 @@
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+ 
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+ 
+
+Constraints:
+
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] consists of only lowercase English letters if it is non-empty.
+Problem Link -> https://leetcode.com/problems/longest-common-prefix/description/?envType=problem-list-v2&envId=trie&
+
+My Solution :
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        char res = strs[0][0];
+        int stringIndex = 0;
+        if (strs.size() == 1) {
+		    return strs[0];
+        }
+        else{
+            for (int i = 0; i < strs.size(); i++) {
+                string temp = strs[i];
+                if (temp.size() == 0) {
+                    return "";
+                    break;
+                }
+                if (strs[i][stringIndex] == res) {
+                    res = strs[i][stringIndex];
+                    if (i == strs.size() - 1 && stringIndex != strs[i].size()-1) {
+                        stringIndex++;
+                        i = 0;
+                        res = strs[0][stringIndex];
+                    }
+                }
+                else {
+                    stringIndex--;
+                    break;
+                }
+            }
+            string finalres = "";
+            for (int i = 0; i <= stringIndex; i++) {
+                finalres += strs[0][i];
+            }
+            return finalres;
+        }        
+    }
+};
+Complexity -> O(n*m)
